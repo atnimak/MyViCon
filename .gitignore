@@ -1,0 +1,6 @@
+__pycache__
+/build/
+/dist/
+V1.bat
+MyViCon.spec
+myvicon_config.json
