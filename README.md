@@ -1,78 +1,80 @@
 # MyViCon
 
-Программа с графическим интерфейсом для объединения видео, озвучек,
-субтитров и шрифтов в один `.mkv` с помощью MKVToolNix.
+A graphical application for combining video, audio tracks, subtitles, and fonts
+into a single `.mkv` file using MKVToolNix.
 
-## Скачать
+## Download
 
-Готовую версию для Windows можно скачать на странице
-[Releases](https://github.com/atnimak/MyViCon/releases).
+A ready-to-use Windows build is available on the
+[Releases](https://github.com/atnimak/MyViCon/releases) page.
 
-Распакуйте архив и запустите `MyViCon.exe`. Устанавливать Python и MKVToolNix
-отдельно не нужно.
+Extract the archive and run `MyViCon.exe`. Python and MKVToolNix do not need
+to be installed separately.
 
-## Возможности
+## Features
 
-- Несколько озвучек и дорожек субтитров.
-- Автоматический поиск файлов по номеру серии: `S01E05`, `EP05`, `E05`, `- 05`.
-- Сопоставление фильмов без номера серии по имени файла.
-- Пользовательское регулярное выражение для нестандартных имён.
-- Настройка языка, названия и флага «по умолчанию» для каждой дорожки.
-- Сохранение оригинальных дорожек, глав и вложений; из файлов озвучки берётся
-  только аудио.
-- Добавление шрифтов `.ttf`, `.otf` и `.ttc`.
-- Предпросмотр совпадений перед сборкой.
-- Журнал и индикатор выполнения.
-- Сохранение настроек между запусками.
+- Support for multiple audio and subtitle tracks.
+- Automatic file matching by episode number: `S01E05`, `EP05`, `E05`, `- 05`.
+- Filename-based matching for movies without episode numbers.
+- Custom regular expressions for non-standard filenames.
+- Language, track name, and default-track flag settings for each track.
+- Preserves the original tracks, chapters, and attachments; only audio tracks
+  are imported from external audio files.
+- Support for `.ttf`, `.otf`, and `.ttc` font attachments.
+- Match preview before muxing.
+- Progress indicator and operation log.
+- Settings are preserved between sessions.
 
-## Использование
+## Usage
 
-1. Выберите папку с исходным видео.
-2. Добавьте папки с озвучками и субтитрами.
-3. При необходимости выберите папку со шрифтами.
-4. Нажмите **Предпросмотр** и проверьте совпадения.
-5. Нажмите **Собрать**.
+1. Select the folder containing the source video files.
+2. Add the folders containing audio tracks and subtitles.
+3. Select a font folder if needed.
+4. Click **Preview** and verify the detected matches.
+5. Click **Mux**.
 
-Результаты сохраняются в выбранную папку или в `<папка видео>\Merged`.
+Output files are saved to the selected folder or to `<video folder>\Merged`.
 
-Для имени файла и заголовка доступны шаблоны `{base}` и `{episode}`.
+The `{base}` and `{episode}` placeholders are available for output filenames
+and titles.
 
-## Настройки
+## Settings
 
-Настройки хранятся в `myvicon_config.json` рядом с программой. Если папка
-недоступна для записи, используется `%APPDATA%\MyViCon`.
+Settings are stored in `myvicon_config.json` next to the application. If that
+folder is not writable, `%APPDATA%\MyViCon` is used instead.
 
-## Запуск из исходников
+## Running from Source
 
-Требуется Python 3.8+ с `tkinter`. Внешних Python-зависимостей нет.
+Python 3.8 or later with `tkinter` is required. There are no external Python
+dependencies.
 
 ```powershell
 python app.py
 ```
 
-`mkvmerge.exe` и `mkvpropedit.exe` должны находиться в папке `mkvtoolnix`
-рядом с программой. Пути к ним также можно указать вручную.
+`mkvmerge.exe` and `mkvpropedit.exe` must be placed in the `mkvtoolnix` folder
+next to the application. Their paths can also be specified manually.
 
-## Сборка
+## Building
 
-Установите PyInstaller и запустите `build.bat`:
+Install PyInstaller and run `build.bat`:
 
 ```powershell
 pip install pyinstaller
 .\build.bat
 ```
 
-Готовый файл появится в `dist\MyViCon.exe`. Папку `mkvtoolnix` необходимо
-положить рядом с ним.
+The compiled executable will be created at `dist\MyViCon.exe`. The
+`mkvtoolnix` folder must be placed next to it.
 
-## Поддерживаемые форматы
+## Supported Formats
 
-- Видео: `.mkv`, `.mp4`, `.m4v`, `.avi`, `.webm`.
-- Аудио: `.mka`, `.mkv`, `.aac`, `.flac`, `.ac3`, `.eac3`, `.dts`, `.opus`,
-  `.wav`, `.m4a`, `.mp3`, `.mp2`.
-- Субтитры: `.ass`, `.ssa`, `.srt`, `.sup`, `.mks`, `.vtt`, `.sub`.
-- Шрифты: `.ttf`, `.otf`, `.ttc`.
+- Video: `.mkv`, `.mp4`, `.m4v`, `.avi`, `.webm`
+- Audio: `.mka`, `.mkv`, `.aac`, `.flac`, `.ac3`, `.eac3`, `.dts`, `.opus`,
+  `.wav`, `.m4a`, `.mp3`, `.mp2`
+- Subtitles: `.ass`, `.ssa`, `.srt`, `.sup`, `.mks`, `.vtt`, `.sub`
+- Fonts: `.ttf`, `.otf`, `.ttc`
 
-## Репозиторий
+## Repository
 
 [github.com/atnimak/MyViCon](https://github.com/atnimak/MyViCon)
